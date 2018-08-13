@@ -1,6 +1,6 @@
 workspace:
   base: /drone
-  path: src
+  path: src/awsmeetup
 
 clone:
   git:
