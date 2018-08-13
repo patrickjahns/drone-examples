@@ -1,0 +1,23 @@
+pipeline:
+  before:
+    image: alpine
+    commands:
+      - sleep 5
+      
+  test:
+    image: library/php:${PHP_TAG}
+    group: parallel
+    commands:
+      - php -v
+      - php sleep.php
+      
+  after:
+    image: alpine
+    commands:
+      - echo "running after the steps completed"
+      
+matrix:
+  PHP_TAG:
+    - 7.0-cli-alpine
+    - 7.1-cli-alpine
+    - 7.2-cli-alpine
