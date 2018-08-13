@@ -1,0 +1,20 @@
+pipeline:
+  secrets:
+    image: alpine:3.1
+    secrets: [ mysecret ]
+    commands:
+      - echo "$MYSECRET"
+      
+  show_secrets_normal:
+    image: alpine:3.1
+    secrets: [ mysecret ]
+    commands:
+      - printenv
+
+  show_secrets_mapped:
+    image: alpine:3.1
+    secrets:
+      - source: mysecret
+        target: my_other_secret
+    commands:
+      - printenv
