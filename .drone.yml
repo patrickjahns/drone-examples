@@ -4,6 +4,7 @@ pipeline:
     commands:
       - echo "I am running alpine $(cat /etc/alpine-release)"
       - echo "My workspace is $(pwd)"
+      - echo "welcome to nue aws meetup"
 
   step_2:
     image: alpine
