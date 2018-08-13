@@ -29,3 +29,4 @@ pipeline:
     image: alpine
     commands:
       - echo "I run after the groups before is finished"
+      
