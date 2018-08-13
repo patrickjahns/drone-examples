@@ -10,6 +10,7 @@ pipeline:
       - printenv
       - wait-for-it -t 60 $${MYSQL_HOST}:3306
       - php connect.php
+      
 
 services:
   database:
