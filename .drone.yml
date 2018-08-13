@@ -1,0 +1,21 @@
+pipeline:
+  step:
+    image: owncloudci/php
+    environment:
+     - MYSQL_HOST=database
+     - MYSQL_USER=username
+     - MYSQL_PASSWORD=password
+    commands:
+      # we need to fair for the database to boot and be available 
+      - printenv
+      - wait-for-it -t 60 $${MYSQL_HOST}:3306
+      - php connect.php
+
+services:
+  database:
+    image: mysql:5.6
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+     - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+     - MYSQL_USER=username
+     - MYSQL_PASSWORD=password
