@@ -1,0 +1,31 @@
+pipeline:
+  before:
+    image: alpine
+    commands:
+      - sleep 5
+      
+  parallel_1:
+    image: library/php:7.0-cli-alpine
+    group: parallel
+    commands:
+      - php -v
+      - php sleep.php
+
+  parallel_2:
+    image: library/php:7.1-cli-alpine
+    group: parallel
+    commands:
+      - php -v
+      - php sleep.php
+
+  parallel_3:
+    image: library/php:7.2-cli-alpine
+    group: parallel
+    commands:
+      - php -v
+      - php sleep.php
+      
+  after:
+    image: alpine
+    commands:
+      - echo "I run after the groups before is finished"
