@@ -1,0 +1,19 @@
+pipeline:
+  step_1:
+    image: alpine:3.1
+    commands:
+      - echo "I am running alpine $(cat /etc/alpine-release)"
+      - echo "My workspace is $(pwd)"
+
+  step_2:
+    image: alpine
+    commands:
+      - echo "I am running alpine $(cat /etc/alpine-release)"
+      - echo "My workspace is $(pwd)"
+      
+  step_3:
+    image: ubuntu
+    commands:
+      - echo "I am running ubuntu \n$(cat /etc/lsb-release)"
+      - echo "My workspace is $(pwd)"     
+      
