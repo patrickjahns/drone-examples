@@ -21,3 +21,4 @@ matrix:
     - 7.0-cli-alpine
     - 7.1-cli-alpine
     - 7.2-cli-alpine
+    
